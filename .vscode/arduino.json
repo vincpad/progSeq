@@ -1,0 +1,4 @@
+{
+    "sketch": "examples\\Line-Tracking\\Line-Tracking.ino",
+    "board": "arduino:avr:uno"
+}
