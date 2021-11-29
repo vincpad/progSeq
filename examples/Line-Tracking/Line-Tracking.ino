@@ -22,11 +22,12 @@ void loop() {
 
   robot.followLine(maxSpeed);
 
-  robot.readSensors();
+  robot.readSensors(); // update sensors value
 
-  if(robot.getSensor(0) > 500 && robot.getSensor(4) > 500){
+  if(robot.getSensor(0) > 500 && robot.getSensor(4) > 500){ // get sensor n° N value
     robot.setSpeed(0, 0);
   }
 
   robot.cycleRGB();
 }
+
