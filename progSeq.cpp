@@ -86,7 +86,7 @@ void progSeq::calibrate() {
   RGB.show();  // Initialize all pixels to 'off'
 }
 
-void progSeq::waitForButton2() {
+void progSeq::confirmCalibration() {
   byte value = 0;
   while (value != 0xEF)  // wait button pressed
   {
@@ -182,32 +182,6 @@ int progSeq::getDistance()  // Measure the distance
   return (int)Fdistance;
 }
 
-void progSeq::cycleRGB() {
-  static unsigned long lasttime = 0;
-  static int j;
-  if (millis() - lasttime > 200) {
-    lasttime = millis();
-    for (int i = 0; i < RGB.numPixels(); i++) {
-      RGB.setPixelColor(i, Wheel(((i * 256 / RGB.numPixels()) + j) & 255));
-    }
-    RGB.show();
-    if (j++ > 256 * 4) j = 0;
-  }
-}
-
-// Input a value 0 to 255 to get a color value.
-// The colours are a transition r - g - b - back to r.
-uint32_t progSeq::Wheel(byte WheelPos) {
-  if (WheelPos < 85) {
-    return RGB.Color(WheelPos * 50, 255 - WheelPos * 50, 0);
-  } else if (WheelPos < 170) {
-    WheelPos -= 85;
-    return RGB.Color(255 - WheelPos * 50, 0, WheelPos * 50);
-  } else {
-    WheelPos -= 170;
-    return RGB.Color(0, WheelPos * 50, 255 - WheelPos * 50);
-  }
-}
 
 void progSeq::PCF8574Write(byte data) {
   Wire.beginTransmission(Addr);
@@ -222,4 +196,35 @@ byte progSeq::PCF8574Read() {
     data = Wire.read();
   }
   return data;
+}
+
+void progSeq::beepOn(){
+  PCF8574Write(0xDF & PCF8574Read());
+}
+
+void progSeq::beepOff(){
+  PCF8574Write(0x20 | PCF8574Read());
+}
+
+void progSeq::setColor(int i, uint32_t color){
+  RGB.setPixelColor(i, RGB.color(
+    static_cast<byte>((color >> 16) & 0xFF),
+    static_cast<byte>((color >> 8) & 0xFF),
+    static_cast<byte>((color >> 0) & 0xFF)
+  ));
+  RGB.show();
+}
+
+void progSeq::updateObstacle(){
+  PCF8574Write(0xC0 | PCF8574Read());   //set Pin High
+  obstacle = PCF8574Read() | 0x3F;         //read Pin
+}
+
+bool progSeq::getObstacle(bool i){
+  if(i) {
+    // todo Thomas la brute du code
+  }
+  else {
+    // todo Thomas la brute du code
+  }
 }

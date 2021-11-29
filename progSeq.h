@@ -36,6 +36,16 @@
 #define ResetSpeed 0x09  // Key:EQ
 #define Repeat 0xFF      // press and hold the key
 
+#define BLACK 0x000000
+#define RED   0xFF0000
+#define GREEN 0x00FF00
+#define BLUE  0x0000FF
+#define WHITE 0xFFFFFF
+
+#define RIGHT 0X0F
+#define LEFT  0xF0
+
+
 #define beep_on PCF8574Write(0xDF & PCF8574Read())
 #define beep_off PCF8574Write(0x20 | PCF8574Read())
 
@@ -49,7 +59,7 @@ class progSeq {
 
   void waitForButton();
 
-  void waitForButton2();
+  void confirmCalibration();
 
   void screen(String text);
 
@@ -59,22 +69,33 @@ class progSeq {
 
   void followLine(int maxSpeed);  // move motors according to line position
 
-  void readSensors();  // get sensors state
+  void readSensors();  // update sensors state
 
   int getSensor(int index);  // get sensors values, index 0 to 5
 
   int getDistance();
 
-  void cycleRGB();
+  bool updateObstacle();
+
+  bool getObstacle(bool i);
+
+  void setColor(int i, uint32_t color);
+
+  void beepOn();
+
+  void beepOff();
 
  private:
   unsigned int sensorValues[NUM_SENSORS];
 
   TRSensors trs = TRSensors();
 
-  uint32_t Wheel(byte WheelPos);
+  int obstacle;
+
   void PCF8574Write(byte data);
   byte PCF8574Read();
 };
 
 #endif
+
+
