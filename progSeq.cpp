@@ -228,3 +228,27 @@ bool progSeq::getObstacle(bool i){
     // todo Thomas la brute du code
   }
 }
+
+int progSeq::getJoystick(){
+  PCF8574Write(0x1F | PCF8574Read());
+  byte value = PCF8574Read() | 0xE0;
+  if(value != 0xFF)
+  {
+    switch(value)
+    { 
+      case 0xFE:
+        return JOY_UP; 
+      case 0xFD:
+        return JOY_RIGHT;
+      case 0xFB:
+        return JOY_LEFT;
+      case 0xF7:
+        return JOY_DOWN;
+      case 0xEF:
+        return JOY_CENTER;
+      default :
+        return JOY_UNKNOWN;
+    }
+  }
+  else return JOY_UNKNOWN;
+}

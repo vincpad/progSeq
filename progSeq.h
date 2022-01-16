@@ -45,6 +45,13 @@
 #define RIGHT 0X0F
 #define LEFT  0xF0
 
+#define JOY_UNKNOWN -1
+#define JOY_LEFT 1
+#define JOY_RIGHT 2
+#define JOY_UP 3
+#define JOY_DOWN 4
+#define JOY_CENTER 5
+
 
 #define beep_on PCF8574Write(0xDF & PCF8574Read())
 #define beep_off PCF8574Write(0x20 | PCF8574Read())
@@ -65,7 +72,7 @@ class progSeq {
 
   void calibrate();  // calibrate line sensors
 
-  void setSpeed(int left, int right);  // -255 to 255
+  void setSpeed(int left, int right);  // -255 (backward) to 255 (forward)
 
   void followLine(int maxSpeed);  // move motors according to line position
 
@@ -84,6 +91,8 @@ class progSeq {
   void beepOn();
 
   void beepOff();
+
+  int getJoystick();
 
  private:
   unsigned int sensorValues[NUM_SENSORS];
