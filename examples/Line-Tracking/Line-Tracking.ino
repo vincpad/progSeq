@@ -1,4 +1,4 @@
-#include <progSeq.h>
+#include "progSeq.h"
 
 progSeq robot;
 
@@ -11,7 +11,7 @@ void setup() {
 
   robot.calibrate();
 
-  robot.waitForButton2(); // wait for button while displaying line position info
+  robot.confirmCalibration(); // wait for button while displaying line position info
 
   robot.screen("Go !");
 }
@@ -27,7 +27,9 @@ void loop() {
   if(robot.getSensor(0) > 500 && robot.getSensor(4) > 500){ // get sensor n° N value
     robot.setSpeed(0, 0);
   }
-
-  robot.cycleRGB();
+  for(int i=0; i<4; i++){
+    robot.setColor(i, RED);
+  }
+  
 }
 

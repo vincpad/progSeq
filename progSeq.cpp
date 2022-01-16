@@ -206,12 +206,12 @@ void progSeq::beepOff(){
   PCF8574Write(0x20 | PCF8574Read());
 }
 
-void progSeq::setColor(int i, uint32_t color){
-  RGB.setPixelColor(i, RGB.color(
-    static_cast<byte>((color >> 16) & 0xFF),
-    static_cast<byte>((color >> 8) & 0xFF),
-    static_cast<byte>((color >> 0) & 0xFF)
-  ));
+void progSeq::setColor(int i, uint32_t _color){
+  RGB.setPixelColor(i, 
+    static_cast<byte>((_color >> 16) & 0xFF),
+    static_cast<byte>((_color >> 8) & 0xFF),
+    static_cast<byte>((_color >> 0) & 0xFF)
+  );
   RGB.show();
 }
 

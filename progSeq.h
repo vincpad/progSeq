@@ -1,7 +1,7 @@
 #ifndef PROGSEQ_H
 #define PROGSEQ_H
 
-#include <Adafruit_GFX.h>
+#include "Adafruit_GFX.h"
 #include <Adafruit_NeoPixel.h>
 #include <Adafruit_SSD1306.h>
 #include <TRSensors.h>
@@ -75,7 +75,7 @@ class progSeq {
 
   int getDistance();
 
-  bool updateObstacle();
+  void updateObstacle();
 
   bool getObstacle(bool i);
 
