@@ -75,7 +75,7 @@ class progSeq {
 
   int getDistance();
 
-  void updateObstacle();
+  void readObstacle();
 
   bool getObstacle(bool i);
 

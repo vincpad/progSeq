@@ -215,7 +215,7 @@ void progSeq::setColor(int i, uint32_t _color){
   RGB.show();
 }
 
-void progSeq::updateObstacle(){
+void progSeq::readObstacle(){
   PCF8574Write(0xC0 | PCF8574Read());   //set Pin High
   obstacle = PCF8574Read() | 0x3F;         //read Pin
 }
