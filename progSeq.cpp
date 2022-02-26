@@ -221,12 +221,8 @@ void progSeq::readObstacle(){
 }
 
 bool progSeq::getObstacle(bool i){
-  if(i) {
-    // todo Thomas la brute du code
-  }
-  else {
-    // todo Thomas la brute du code
-  }
+  Serial.println(obstacle, HEX);
+  return true; // to be modified
 }
 
 int progSeq::getJoystick(){
