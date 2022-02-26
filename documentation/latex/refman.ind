@@ -1,0 +1,47 @@
+\begin{theindex}
+
+  \item {followLine}
+    \subitem {progSeq}, \hyperpage{2}
+
+  \indexspace
+
+  \item {getDistance}
+    \subitem {progSeq}, \hyperpage{2}
+  \item {getJoystick}
+    \subitem {progSeq}, \hyperpage{2}
+  \item {getObstacle}
+    \subitem {progSeq}, \hyperpage{2}
+  \item {getSensor}
+    \subitem {progSeq}, \hyperpage{3}
+
+  \indexspace
+
+  \item {progSeq}, \hyperpage{1}
+    \subitem {followLine}, \hyperpage{2}
+    \subitem {getDistance}, \hyperpage{2}
+    \subitem {getJoystick}, \hyperpage{2}
+    \subitem {getObstacle}, \hyperpage{2}
+    \subitem {getSensor}, \hyperpage{3}
+    \subitem {readObstacle}, \hyperpage{3}
+    \subitem {readSensors}, \hyperpage{3}
+    \subitem {screen}, \hyperpage{3}
+    \subitem {setColor}, \hyperpage{3}
+    \subitem {setSpeed}, \hyperpage{4}
+
+  \indexspace
+
+  \item {readObstacle}
+    \subitem {progSeq}, \hyperpage{3}
+  \item {readSensors}
+    \subitem {progSeq}, \hyperpage{3}
+
+  \indexspace
+
+  \item {screen}
+    \subitem {progSeq}, \hyperpage{3}
+  \item {setColor}
+    \subitem {progSeq}, \hyperpage{3}
+  \item {setSpeed}
+    \subitem {progSeq}, \hyperpage{4}
+
+\end{theindex}
