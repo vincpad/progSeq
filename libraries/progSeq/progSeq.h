@@ -42,8 +42,8 @@
 #define BLUE  0x0000FF
 #define WHITE 0xFFFFFF
 
-#define RIGHT 0X0F
-#define LEFT  0xF0
+#define RIGHT 0X40
+#define LEFT  0x80
 
 #define JOY_UNKNOWN -1
 #define JOY_LEFT 1
@@ -62,7 +62,16 @@ extern Adafruit_NeoPixel RGB;
 
 class progSeq {
  public:
+ /**
+  * @brief Construct a robot object
+  * 
+  */
   progSeq();
+  /**
+   * @brief Init the robot
+   * 
+   */
+  void init();
 
   /**
    * @brief Blocking function that waits for the joystick button to be pressed.

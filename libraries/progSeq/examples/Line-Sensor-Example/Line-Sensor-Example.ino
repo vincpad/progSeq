@@ -4,6 +4,7 @@ progSeq robot;
 
 void setup()
 {
+  robot.init();
   Serial.begin(115200);
   robot.screen("Line sensor\nexample"); // display things
 

@@ -45,8 +45,8 @@
 \DoxyCodeLine{42 \textcolor{preprocessor}{\#define BLUE  0x0000FF}}
 \DoxyCodeLine{43 \textcolor{preprocessor}{\#define WHITE 0xFFFFFF}}
 \DoxyCodeLine{44 }
-\DoxyCodeLine{45 \textcolor{preprocessor}{\#define RIGHT 0X0F}}
-\DoxyCodeLine{46 \textcolor{preprocessor}{\#define LEFT  0xF0}}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#define RIGHT 0X40}}
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#define LEFT  0x80}}
 \DoxyCodeLine{47 }
 \DoxyCodeLine{48 \textcolor{preprocessor}{\#define JOY\_UNKNOWN -\/1}}
 \DoxyCodeLine{49 \textcolor{preprocessor}{\#define JOY\_LEFT 1}}
@@ -65,37 +65,38 @@
 \DoxyCodeLine{62 }
 \DoxyCodeLine{63 \textcolor{keyword}{class }\mbox{\hyperlink{classprog_seq}{progSeq}} \{}
 \DoxyCodeLine{64  \textcolor{keyword}{public}:}
-\DoxyCodeLine{65   \mbox{\hyperlink{classprog_seq}{progSeq}}();}
-\DoxyCodeLine{66 }
-\DoxyCodeLine{71   \textcolor{keywordtype}{void} \mbox{\hyperlink{classprog_seq_ac6921b3de3e36b8deba90d3db1b78cba}{waitForButton}}();}
-\DoxyCodeLine{76   \textcolor{keywordtype}{void} \mbox{\hyperlink{classprog_seq_a3d9ba609ea0d34e7cb278770f261c1e6}{confirmCalibration}}();}
-\DoxyCodeLine{82   \textcolor{keywordtype}{void} \mbox{\hyperlink{classprog_seq_acd6464bda0a0cbc7c7d8b3d925db84b2}{screen}}(String text);}
-\DoxyCodeLine{87   \textcolor{keywordtype}{void} \mbox{\hyperlink{classprog_seq_aa9c766c833da656010ea5da35f937213}{calibrate}}();  \textcolor{comment}{// calibrate line sensors}}
-\DoxyCodeLine{94 \textcolor{comment}{}  \textcolor{keywordtype}{void} \mbox{\hyperlink{classprog_seq_aceadd4b156bc682ea0b2b07e81c52c20}{setSpeed}}(\textcolor{keywordtype}{int} left, \textcolor{keywordtype}{int} right);  \textcolor{comment}{// -\/255 (backward) to 255 (forward)}}
-\DoxyCodeLine{101 \textcolor{comment}{}  \textcolor{keywordtype}{void} \mbox{\hyperlink{classprog_seq_a4a1f57f3d0f1fdea0c932f7e2cd0ea9c}{followLine}}(\textcolor{keywordtype}{int} maxSpeed);  \textcolor{comment}{// move motors according to line position}}
-\DoxyCodeLine{106 \textcolor{comment}{}  \textcolor{keywordtype}{void} \mbox{\hyperlink{classprog_seq_a53073855397000e8d002e45f8a8ee44d}{readSensors}}();  \textcolor{comment}{// update sensors state}}
-\DoxyCodeLine{114 \textcolor{comment}{}  \textcolor{keywordtype}{int} \mbox{\hyperlink{classprog_seq_aaf1e2a26f1918105a80a463c57de0336}{getSensor}}(\textcolor{keywordtype}{int} index);  \textcolor{comment}{// get sensors values, index 0 to 5}}
-\DoxyCodeLine{120 \textcolor{comment}{}  \textcolor{keywordtype}{int} \mbox{\hyperlink{classprog_seq_ad8c12272e2fb701da48995a8785d5b72}{getDistance}}();}
-\DoxyCodeLine{126   \textcolor{keywordtype}{void} \mbox{\hyperlink{classprog_seq_ab3136f2e070e10ad299db1129436ba52}{readObstacle}}();}
-\DoxyCodeLine{135   \textcolor{keywordtype}{bool} \mbox{\hyperlink{classprog_seq_a2f8678850a98b5c3b6991f8cb3b51092}{getObstacle}}(\textcolor{keywordtype}{byte} sensor);}
-\DoxyCodeLine{142   \textcolor{keywordtype}{void} \mbox{\hyperlink{classprog_seq_a1e7366e95f5a9a38a567c03de1e6803b}{setColor}}(\textcolor{keywordtype}{int} i, uint32\_t color);}
-\DoxyCodeLine{147   \textcolor{keywordtype}{void} \mbox{\hyperlink{classprog_seq_a20c8292537ae3049923a269a5a287405}{beepOn}}();}
-\DoxyCodeLine{152   \textcolor{keywordtype}{void} \mbox{\hyperlink{classprog_seq_a3f52507582b66d60a2acc04e93e35ac2}{beepOff}}();}
-\DoxyCodeLine{159   \textcolor{keywordtype}{int} \mbox{\hyperlink{classprog_seq_a66caa10dc09b55a5308c8c4247054376}{getJoystick}}();}
-\DoxyCodeLine{160 }
-\DoxyCodeLine{161  \textcolor{keyword}{private}:}
-\DoxyCodeLine{162   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} sensorValues[NUM\_SENSORS];}
-\DoxyCodeLine{163 }
-\DoxyCodeLine{164   TRSensors trs = TRSensors();}
-\DoxyCodeLine{165 }
-\DoxyCodeLine{166   \textcolor{keywordtype}{int} obstacle;}
-\DoxyCodeLine{167 }
-\DoxyCodeLine{168   \textcolor{keywordtype}{void} PCF8574Write(\textcolor{keywordtype}{byte} data);}
-\DoxyCodeLine{169   \textcolor{keywordtype}{byte} PCF8574Read();}
-\DoxyCodeLine{170 \};}
-\DoxyCodeLine{171 }
-\DoxyCodeLine{172 \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{173 }
+\DoxyCodeLine{69   \mbox{\hyperlink{classprog_seq_a03759370cef49e0aecd3d22be4730872}{progSeq}}();}
+\DoxyCodeLine{74   \textcolor{keywordtype}{void} \mbox{\hyperlink{classprog_seq_ad3a2065cf83996ca13edbc5ad15ce7c7}{init}}();}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{80   \textcolor{keywordtype}{void} \mbox{\hyperlink{classprog_seq_ac6921b3de3e36b8deba90d3db1b78cba}{waitForButton}}();}
+\DoxyCodeLine{85   \textcolor{keywordtype}{void} \mbox{\hyperlink{classprog_seq_a3d9ba609ea0d34e7cb278770f261c1e6}{confirmCalibration}}();}
+\DoxyCodeLine{91   \textcolor{keywordtype}{void} \mbox{\hyperlink{classprog_seq_acd6464bda0a0cbc7c7d8b3d925db84b2}{screen}}(String text);}
+\DoxyCodeLine{96   \textcolor{keywordtype}{void} \mbox{\hyperlink{classprog_seq_aa9c766c833da656010ea5da35f937213}{calibrate}}();  \textcolor{comment}{// calibrate line sensors}}
+\DoxyCodeLine{103 \textcolor{comment}{}  \textcolor{keywordtype}{void} \mbox{\hyperlink{classprog_seq_aceadd4b156bc682ea0b2b07e81c52c20}{setSpeed}}(\textcolor{keywordtype}{int} left, \textcolor{keywordtype}{int} right);  \textcolor{comment}{// -\/255 (backward) to 255 (forward)}}
+\DoxyCodeLine{110 \textcolor{comment}{}  \textcolor{keywordtype}{void} \mbox{\hyperlink{classprog_seq_a4a1f57f3d0f1fdea0c932f7e2cd0ea9c}{followLine}}(\textcolor{keywordtype}{int} maxSpeed);  \textcolor{comment}{// move motors according to line position}}
+\DoxyCodeLine{115 \textcolor{comment}{}  \textcolor{keywordtype}{void} \mbox{\hyperlink{classprog_seq_a53073855397000e8d002e45f8a8ee44d}{readSensors}}();  \textcolor{comment}{// update sensors state}}
+\DoxyCodeLine{123 \textcolor{comment}{}  \textcolor{keywordtype}{int} \mbox{\hyperlink{classprog_seq_aaf1e2a26f1918105a80a463c57de0336}{getSensor}}(\textcolor{keywordtype}{int} index);  \textcolor{comment}{// get sensors values, index 0 to 5}}
+\DoxyCodeLine{129 \textcolor{comment}{}  \textcolor{keywordtype}{int} \mbox{\hyperlink{classprog_seq_ad8c12272e2fb701da48995a8785d5b72}{getDistance}}();}
+\DoxyCodeLine{135   \textcolor{keywordtype}{void} \mbox{\hyperlink{classprog_seq_ab3136f2e070e10ad299db1129436ba52}{readObstacle}}();}
+\DoxyCodeLine{144   \textcolor{keywordtype}{bool} \mbox{\hyperlink{classprog_seq_a2f8678850a98b5c3b6991f8cb3b51092}{getObstacle}}(\textcolor{keywordtype}{byte} sensor);}
+\DoxyCodeLine{151   \textcolor{keywordtype}{void} \mbox{\hyperlink{classprog_seq_a1e7366e95f5a9a38a567c03de1e6803b}{setColor}}(\textcolor{keywordtype}{int} i, uint32\_t color);}
+\DoxyCodeLine{156   \textcolor{keywordtype}{void} \mbox{\hyperlink{classprog_seq_a20c8292537ae3049923a269a5a287405}{beepOn}}();}
+\DoxyCodeLine{161   \textcolor{keywordtype}{void} \mbox{\hyperlink{classprog_seq_a3f52507582b66d60a2acc04e93e35ac2}{beepOff}}();}
+\DoxyCodeLine{168   \textcolor{keywordtype}{int} \mbox{\hyperlink{classprog_seq_a66caa10dc09b55a5308c8c4247054376}{getJoystick}}();}
+\DoxyCodeLine{169 }
+\DoxyCodeLine{170  \textcolor{keyword}{private}:}
+\DoxyCodeLine{171   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} sensorValues[NUM\_SENSORS];}
+\DoxyCodeLine{172 }
+\DoxyCodeLine{173   TRSensors trs = TRSensors();}
 \DoxyCodeLine{174 }
+\DoxyCodeLine{175   \textcolor{keywordtype}{int} obstacle;}
+\DoxyCodeLine{176 }
+\DoxyCodeLine{177   \textcolor{keywordtype}{void} PCF8574Write(\textcolor{keywordtype}{byte} data);}
+\DoxyCodeLine{178   \textcolor{keywordtype}{byte} PCF8574Read();}
+\DoxyCodeLine{179 \};}
+\DoxyCodeLine{180 }
+\DoxyCodeLine{181 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{182 }
+\DoxyCodeLine{183 }
 
 \end{DoxyCode}

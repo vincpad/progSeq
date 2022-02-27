@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['waitforbutton_0',['waitForButton',['../classprog_seq.html#ac6921b3de3e36b8deba90d3db1b78cba',1,'progSeq']]]
+  ['readobstacle_0',['readObstacle',['../classprog_seq.html#ab3136f2e070e10ad299db1129436ba52',1,'progSeq']]],
+  ['readsensors_1',['readSensors',['../classprog_seq.html#a53073855397000e8d002e45f8a8ee44d',1,'progSeq']]]
 ];

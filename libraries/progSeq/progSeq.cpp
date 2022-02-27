@@ -5,10 +5,13 @@ Adafruit_SSD1306 display(OLED_RESET, OLED_SA0);
 
 // Base class data member initialization (called by derived class init())
 progSeq::progSeq() {
+  // nothing to do here
+}
+
+void progSeq::init() {
+  Serial.begin(115200);
   Wire.begin();
-
   display.begin(SSD1306_SWITCHCAPVCC, 0x3C);  // initialize with the I2C addr 0x3D (for the 128x64)
-
   // init
   pinMode(IR, INPUT);
   pinMode(PWMA, OUTPUT);
@@ -108,13 +111,13 @@ void progSeq::confirmCalibration() {
 
 void progSeq::setSpeed(int left, int right) {  // -255 to 255
 
-  digitalWrite(AIN1, left > 0);
-  digitalWrite(AIN2, left < 0);
+  digitalWrite(AIN1, left < 0);
+  digitalWrite(AIN2, left > 0);
   analogWrite(PWMA, left * (-1 + 2 * (left > 0)));
 
   digitalWrite(BIN1, right < 0);
   digitalWrite(BIN2, right > 0);
-  analogWrite(PWMA, left * (-1 + 2 * (right > 0)));
+  analogWrite(PWMB, right * (-1 + 2 * (right > 0)));
 }
 
 void progSeq::followLine(int maxSpeed) {  // move motors according to line position
@@ -221,8 +224,7 @@ void progSeq::readObstacle(){
 }
 
 bool progSeq::getObstacle(byte sensor){
-  Serial.println(obstacle, HEX);
-  return true; // to be modified
+  return !(obstacle & sensor); // to be modified
 }
 
 int progSeq::getJoystick(){

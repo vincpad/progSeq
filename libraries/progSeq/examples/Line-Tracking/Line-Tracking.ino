@@ -1,12 +1,13 @@
-#include "progSeq.h"
+#include <progSeq.h>
 
 progSeq robot;
 
 void setup() {
+  robot.init();
   Serial.begin(115200);
-
+  Serial.println("1");
   robot.screen("Waveshare\nAlphabot2\nPress to calibrate"); // display things
-
+  Serial.println("2");
   robot.waitForButton(); // wait for button
 
   robot.calibrate(); // turn on 180 degrees to get the values of sensors for black and white floor
