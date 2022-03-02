@@ -1,22 +1,22 @@
 \begin{theindex}
 
   \item {followLine}
-    \subitem {progSeq}, \hyperpage{2}
+    \subitem {progSeq.h}, \hyperpage{2}
 
   \indexspace
 
   \item {getDistance}
-    \subitem {progSeq}, \hyperpage{2}
+    \subitem {progSeq.h}, \hyperpage{2}
   \item {getJoystick}
-    \subitem {progSeq}, \hyperpage{2}
+    \subitem {progSeq.h}, \hyperpage{2}
   \item {getObstacle}
-    \subitem {progSeq}, \hyperpage{2}
+    \subitem {progSeq.h}, \hyperpage{2}
   \item {getSensor}
-    \subitem {progSeq}, \hyperpage{3}
+    \subitem {progSeq.h}, \hyperpage{3}
 
   \indexspace
 
-  \item {progSeq}, \hyperpage{1}
+  \item {progSeq.h}, \hyperpage{1}
     \subitem {followLine}, \hyperpage{2}
     \subitem {getDistance}, \hyperpage{2}
     \subitem {getJoystick}, \hyperpage{2}
@@ -31,17 +31,17 @@
   \indexspace
 
   \item {readObstacle}
-    \subitem {progSeq}, \hyperpage{3}
+    \subitem {progSeq.h}, \hyperpage{3}
   \item {readSensors}
-    \subitem {progSeq}, \hyperpage{3}
+    \subitem {progSeq.h}, \hyperpage{3}
 
   \indexspace
 
   \item {screen}
-    \subitem {progSeq}, \hyperpage{3}
+    \subitem {progSeq.h}, \hyperpage{3}
   \item {setColor}
-    \subitem {progSeq}, \hyperpage{3}
+    \subitem {progSeq.h}, \hyperpage{3}
   \item {setSpeed}
-    \subitem {progSeq}, \hyperpage{4}
+    \subitem {progSeq.h}, \hyperpage{4}
 
 \end{theindex}

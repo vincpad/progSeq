@@ -2,20 +2,20 @@ var indexSectionsWithContent =
 {
   0: "bcfgiprsw",
   1: "p",
-  2: "bcfgiprsw"
+  2: "bcfgirsw"
 };
 
 var indexSectionNames =
 {
   0: "all",
-  1: "classes",
+  1: "files",
   2: "functions"
 };
 
 var indexSectionLabels =
 {
   0: "All",
-  1: "Classes",
+  1: "Files",
   2: "Functions"
 };
 

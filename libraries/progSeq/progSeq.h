@@ -1,3 +1,4 @@
+/// \cond DO_NOT_DOCUMENT
 #ifndef PROGSEQ_H
 #define PROGSEQ_H
 
@@ -63,8 +64,8 @@
 // extern Adafruit_SSD1306 display;
 extern Adafruit_NeoPixel RGB;
 extern TRSensors trs;
-
-
+/// \endcond
+  /** @file */ 
 
   /**
    * @brief Init the robot

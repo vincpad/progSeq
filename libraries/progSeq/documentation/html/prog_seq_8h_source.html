@@ -66,121 +66,115 @@ $(function() {
   <div class="headertitle"><div class="title">progSeq.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef PROGSEQ_H</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define PROGSEQ_H</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;Adafruit_GFX.h&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;Adafruit_NeoPixel.h&gt;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;Adafruit_SSD1306.h&gt;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;TRSensors.h&gt;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;Wire.h&gt;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;Arduino.h&gt;</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#define PWMA 6   </span><span class="comment">// Left Motor Speed pin (ENA)</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#define AIN2 A0  </span><span class="comment">// Motor-L forward (IN2).</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#define AIN1 A1  </span><span class="comment">// Motor-L backward (IN1)</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#define PWMB 5   </span><span class="comment">// Right Motor Speed pin (ENB)</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#define BIN1 A2  </span><span class="comment">// Motor-R forward (IN3)</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#define BIN2 A3  </span><span class="comment">// Motor-R backward (IN4)</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#define PIN 7</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#define NUM_SENSORS 5</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#define OLED_RESET 9</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#define OLED_SA0 8</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#define Addr 0x20</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#define IR 4  </span><span class="comment">// he infrare remote receiver pin</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#define ECHO 2</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#define TRIG 3</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#define KEY2 0x18        </span><span class="comment">// Key:2</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#define KEY8 0x52        </span><span class="comment">// Key:8</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#define KEY4 0x08        </span><span class="comment">// Key:4</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#define KEY6 0x5A        </span><span class="comment">// Key:6</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#define KEY1 0x0C        </span><span class="comment">// Key:1</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#define KEY3 0x5E        </span><span class="comment">// Key:3</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#define KEY5 0x1C        </span><span class="comment">// Key:5</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#define SpeedDown 0x07   </span><span class="comment">// Key:VOL-</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#define SpeedUp 0x15     </span><span class="comment">// Key:VOL+</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#define ResetSpeed 0x09  </span><span class="comment">// Key:EQ</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#define Repeat 0xFF      </span><span class="comment">// press and hold the key</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#define BLACK 0x000000</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#define RED   0xFF0000</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#define GREEN 0x00FF00</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">#define BLUE  0x0000FF</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">#define WHITE 0xFFFFFF</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">#define RIGHT 0X40</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">#define LEFT  0x80</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor">#define JOY_UNKNOWN -1</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="preprocessor">#define JOY_LEFT 1</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">#define JOY_RIGHT 2</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="preprocessor">#define JOY_UP 3</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="preprocessor">#define JOY_DOWN 4</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="preprocessor">#define JOY_CENTER 5</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="preprocessor">#define beep_on PCF8574Write(0xDF &amp; PCF8574Read())</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="preprocessor">#define beep_off PCF8574Write(0x20 | PCF8574Read())</span></div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="keyword">extern</span> Adafruit_SSD1306 display;</div>
+<a href="prog_seq_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#ifndef PROGSEQ_H</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#define PROGSEQ_H</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;Arduino.h&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">// #include &lt;Adafruit_GFX.h&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;Adafruit_NeoPixel.h&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;Adafruit_SSD1306.h&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;TRSensors.h&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;Wire.h&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#define PWMA 6   </span><span class="comment">// Left Motor Speed pin (ENA)</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#define AIN2 A0  </span><span class="comment">// Motor-L forward (IN2).</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#define AIN1 A1  </span><span class="comment">// Motor-L backward (IN1)</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#define PWMB 5   </span><span class="comment">// Right Motor Speed pin (ENB)</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#define BIN1 A2  </span><span class="comment">// Motor-R forward (IN3)</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#define BIN2 A3  </span><span class="comment">// Motor-R backward (IN4)</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#define PIN 7</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#define NUM_SENSORS 5</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#define SCREEN_WIDTH 128 </span><span class="comment">// OLED display width, in pixels</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#define SCREEN_HEIGHT 32 </span><span class="comment">// OLED display height, in pixels</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#define OLED_RESET     9 </span><span class="comment">// Reset pin # (or -1 if sharing Arduino reset pin)</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#define SCREEN_ADDRESS 0x3C </span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#define Addr 0x20</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#define IR 4  </span><span class="comment">// he infrare remote receiver pin</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#define ECHO 2</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#define TRIG 3</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#define KEY2 0x18        </span><span class="comment">// Key:2</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#define KEY8 0x52        </span><span class="comment">// Key:8</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#define KEY4 0x08        </span><span class="comment">// Key:4</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#define KEY6 0x5A        </span><span class="comment">// Key:6</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#define KEY1 0x0C        </span><span class="comment">// Key:1</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#define KEY3 0x5E        </span><span class="comment">// Key:3</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#define KEY5 0x1C        </span><span class="comment">// Key:5</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#define SpeedDown 0x07   </span><span class="comment">// Key:VOL-</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#define SpeedUp 0x15     </span><span class="comment">// Key:VOL+</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#define ResetSpeed 0x09  </span><span class="comment">// Key:EQ</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">#define Repeat 0xFF      </span><span class="comment">// press and hold the key</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="preprocessor">#define BLACK 0x000000</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">#define RED   0xFF0000</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">#define GREEN 0x00FF00</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="preprocessor">#define BLUE  0x0000FF</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor">#define WHITE 0xFFFFFF</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">#define RIGHT 0X40</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="preprocessor">#define LEFT  0x80</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="preprocessor">#define JOY_UNKNOWN -1</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="preprocessor">#define JOY_LEFT 1</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="preprocessor">#define JOY_RIGHT 2</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="preprocessor">#define JOY_UP 3</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="preprocessor">#define JOY_DOWN 4</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="preprocessor">#define JOY_CENTER 5</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="keyword">extern</span> Adafruit_NeoPixel RGB;</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="classprog_seq.html">   63</a></span><span class="keyword">class </span><a class="code hl_class" href="classprog_seq.html">progSeq</a> {</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>  <a class="code hl_function" href="classprog_seq.html#a03759370cef49e0aecd3d22be4730872">progSeq</a>();</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classprog_seq.html#ad3a2065cf83996ca13edbc5ad15ce7c7">init</a>();</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="preprocessor">#define beep_on PCF8574Write(0xDF &amp; PCF8574Read())</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="preprocessor">#define beep_off PCF8574Write(0x20 | PCF8574Read())</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment">// extern Adafruit_SSD1306 display;</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="keyword">extern</span> Adafruit_NeoPixel RGB;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="keyword">extern</span> TRSensors trs;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="prog_seq_8h.html#ac61729770a5f433097dc0c06550ab0a7">initRobot</a>();</div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classprog_seq.html#ac6921b3de3e36b8deba90d3db1b78cba">waitForButton</a>();</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classprog_seq.html#a3d9ba609ea0d34e7cb278770f261c1e6">confirmCalibration</a>();</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classprog_seq.html#acd6464bda0a0cbc7c7d8b3d925db84b2">screen</a>(String text);</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classprog_seq.html#aa9c766c833da656010ea5da35f937213">calibrate</a>();  <span class="comment">// calibrate line sensors</span></div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="comment"></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classprog_seq.html#aceadd4b156bc682ea0b2b07e81c52c20">setSpeed</a>(<span class="keywordtype">int</span> left, <span class="keywordtype">int</span> right);  <span class="comment">// -255 (backward) to 255 (forward)</span></div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="comment"></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classprog_seq.html#a4a1f57f3d0f1fdea0c932f7e2cd0ea9c">followLine</a>(<span class="keywordtype">int</span> maxSpeed);  <span class="comment">// move motors according to line position</span></div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="comment"></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classprog_seq.html#a53073855397000e8d002e45f8a8ee44d">readSensors</a>();  <span class="comment">// update sensors state</span></div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="comment"></span>  <span class="keywordtype">int</span> <a class="code hl_function" href="classprog_seq.html#aaf1e2a26f1918105a80a463c57de0336">getSensor</a>(<span class="keywordtype">int</span> index);  <span class="comment">// get sensors values, index 0 to 5</span></div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="comment"></span>  <span class="keywordtype">int</span> <a class="code hl_function" href="classprog_seq.html#ad8c12272e2fb701da48995a8785d5b72">getDistance</a>();</div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classprog_seq.html#ab3136f2e070e10ad299db1129436ba52">readObstacle</a>();</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="classprog_seq.html#a2f8678850a98b5c3b6991f8cb3b51092">getObstacle</a>(<span class="keywordtype">byte</span> sensor);</div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classprog_seq.html#a1e7366e95f5a9a38a567c03de1e6803b">setColor</a>(<span class="keywordtype">int</span> i, uint32_t color);</div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classprog_seq.html#a20c8292537ae3049923a269a5a287405">beepOn</a>();</div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classprog_seq.html#a3f52507582b66d60a2acc04e93e35ac2">beepOff</a>();</div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>  <span class="keywordtype">int</span> <a class="code hl_function" href="classprog_seq.html#a66caa10dc09b55a5308c8c4247054376">getJoystick</a>();</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="prog_seq_8h.html#a906c879d4d5d9f61eb62e7c7d2845ffe">waitForButton</a>();</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="prog_seq_8h.html#a4717d80629a86cafcba7e97b49aed09c">confirmCalibration</a>();</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="prog_seq_8h.html#ae7b7ddd9b58ce2ca87434ae95864f1eb">screen</a>(String text);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="prog_seq_8h.html#ad4a7316a51b17d0f691bb3e33b95a5ad">calibrate</a>();  <span class="comment">// calibrate line sensors</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="comment"></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="prog_seq_8h.html#a93514103f081bb26d44a86067ed5af79">setSpeed</a>(<span class="keywordtype">int</span> left, <span class="keywordtype">int</span> right);  <span class="comment">// -255 (backward) to 255 (forward)</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="comment"></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="prog_seq_8h.html#acbbd246cabf85278512269c3dac9895d">followLine</a>(<span class="keywordtype">int</span> maxSpeed);  <span class="comment">// move motors according to line position</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="comment"></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="prog_seq_8h.html#ad40ccf803c2eff76d7e0e7a24c9937ef">readSensors</a>();  <span class="comment">// update sensors state</span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="comment"></span>  <span class="keywordtype">int</span> <a class="code hl_function" href="prog_seq_8h.html#a68ba838831800b02c4ba81cc30936094">getSensor</a>(<span class="keywordtype">int</span> index);  <span class="comment">// get sensors values, index 0 to 5</span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="comment"></span>  <span class="keywordtype">int</span> <a class="code hl_function" href="prog_seq_8h.html#abbfc5136e07563b242069f2c368b0365">getDistance</a>();</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="prog_seq_8h.html#a8569f8dfba285878435ac80320ce150b">readObstacle</a>();</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="prog_seq_8h.html#a1d1d0acc63052e733228c059fe0b7789">getObstacle</a>(<span class="keywordtype">byte</span> sensor);</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="prog_seq_8h.html#aac3c40e5b9732d82de3829b3a61538ef">setColor</a>(<span class="keywordtype">int</span> i, uint32_t color);</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="prog_seq_8h.html#a56d543b93e08f4ad1cb9938dd10de747">beepOn</a>();</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="prog_seq_8h.html#a04a5d0deec648cda95f9547e562e72b4">beepOff</a>();</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>  <span class="keywordtype">int</span> <a class="code hl_function" href="prog_seq_8h.html#abb86979eea59edc90f12bf759df308d3">getJoystick</a>();</div>
 <div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span> <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> sensorValues[NUM_SENSORS];</div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> </div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>  TRSensors trs = TRSensors();</div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span> </div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>  <span class="keywordtype">int</span> obstacle;</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>  </div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>  <span class="keywordtype">void</span> PCF8574Write(<span class="keywordtype">byte</span> data);</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>  <span class="keywordtype">byte</span> PCF8574Read();</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>  </div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span><span class="preprocessor">#endif</span></div>
 <div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>  <span class="keywordtype">void</span> PCF8574Write(<span class="keywordtype">byte</span> data);</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>  <span class="keywordtype">byte</span> PCF8574Read();</div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>};</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span> </div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span> </div>
-<div class="ttc" id="aclassprog_seq_html"><div class="ttname"><a href="classprog_seq.html">progSeq</a></div><div class="ttdef"><b>Definition:</b> progSeq.h:63</div></div>
-<div class="ttc" id="aclassprog_seq_html_a03759370cef49e0aecd3d22be4730872"><div class="ttname"><a href="classprog_seq.html#a03759370cef49e0aecd3d22be4730872">progSeq::progSeq</a></div><div class="ttdeci">progSeq()</div><div class="ttdoc">Construct a robot object.</div><div class="ttdef"><b>Definition:</b> progSeq.cpp:7</div></div>
-<div class="ttc" id="aclassprog_seq_html_a1e7366e95f5a9a38a567c03de1e6803b"><div class="ttname"><a href="classprog_seq.html#a1e7366e95f5a9a38a567c03de1e6803b">progSeq::setColor</a></div><div class="ttdeci">void setColor(int i, uint32_t color)</div><div class="ttdoc">Set the RGB LED i to the color of your choice.</div><div class="ttdef"><b>Definition:</b> progSeq.cpp:212</div></div>
-<div class="ttc" id="aclassprog_seq_html_a20c8292537ae3049923a269a5a287405"><div class="ttname"><a href="classprog_seq.html#a20c8292537ae3049923a269a5a287405">progSeq::beepOn</a></div><div class="ttdeci">void beepOn()</div><div class="ttdoc">Start the buzzer.</div><div class="ttdef"><b>Definition:</b> progSeq.cpp:204</div></div>
-<div class="ttc" id="aclassprog_seq_html_a2f8678850a98b5c3b6991f8cb3b51092"><div class="ttname"><a href="classprog_seq.html#a2f8678850a98b5c3b6991f8cb3b51092">progSeq::getObstacle</a></div><div class="ttdeci">bool getObstacle(byte sensor)</div><div class="ttdoc">Get a specific infrared proximity sensor value.</div><div class="ttdef"><b>Definition:</b> progSeq.cpp:226</div></div>
-<div class="ttc" id="aclassprog_seq_html_a3d9ba609ea0d34e7cb278770f261c1e6"><div class="ttname"><a href="classprog_seq.html#a3d9ba609ea0d34e7cb278770f261c1e6">progSeq::confirmCalibration</a></div><div class="ttdeci">void confirmCalibration()</div><div class="ttdoc">Blocking function that waits for the joystick button to be pressed, while displaying the black line p...</div><div class="ttdef"><b>Definition:</b> progSeq.cpp:92</div></div>
-<div class="ttc" id="aclassprog_seq_html_a3f52507582b66d60a2acc04e93e35ac2"><div class="ttname"><a href="classprog_seq.html#a3f52507582b66d60a2acc04e93e35ac2">progSeq::beepOff</a></div><div class="ttdeci">void beepOff()</div><div class="ttdoc">Stop the buzzer.</div><div class="ttdef"><b>Definition:</b> progSeq.cpp:208</div></div>
-<div class="ttc" id="aclassprog_seq_html_a4a1f57f3d0f1fdea0c932f7e2cd0ea9c"><div class="ttname"><a href="classprog_seq.html#a4a1f57f3d0f1fdea0c932f7e2cd0ea9c">progSeq::followLine</a></div><div class="ttdeci">void followLine(int maxSpeed)</div><div class="ttdoc">Execute a follow line code.</div><div class="ttdef"><b>Definition:</b> progSeq.cpp:123</div></div>
-<div class="ttc" id="aclassprog_seq_html_a53073855397000e8d002e45f8a8ee44d"><div class="ttname"><a href="classprog_seq.html#a53073855397000e8d002e45f8a8ee44d">progSeq::readSensors</a></div><div class="ttdeci">void readSensors()</div><div class="ttdoc">Read the line sensors value and store them in RAM for further readings.</div><div class="ttdef"><b>Definition:</b> progSeq.cpp:167</div></div>
-<div class="ttc" id="aclassprog_seq_html_a66caa10dc09b55a5308c8c4247054376"><div class="ttname"><a href="classprog_seq.html#a66caa10dc09b55a5308c8c4247054376">progSeq::getJoystick</a></div><div class="ttdeci">int getJoystick()</div><div class="ttdoc">Get the Joystick position.</div><div class="ttdef"><b>Definition:</b> progSeq.cpp:230</div></div>
-<div class="ttc" id="aclassprog_seq_html_aa9c766c833da656010ea5da35f937213"><div class="ttname"><a href="classprog_seq.html#aa9c766c833da656010ea5da35f937213">progSeq::calibrate</a></div><div class="ttdeci">void calibrate()</div><div class="ttdoc">Start a calibration (the robots turns left then right to find the highest and lowest possible brightn...</div><div class="ttdef"><b>Definition:</b> progSeq.cpp:54</div></div>
-<div class="ttc" id="aclassprog_seq_html_aaf1e2a26f1918105a80a463c57de0336"><div class="ttname"><a href="classprog_seq.html#aaf1e2a26f1918105a80a463c57de0336">progSeq::getSensor</a></div><div class="ttdeci">int getSensor(int index)</div><div class="ttdoc">Get a specific line sensor value.</div><div class="ttdef"><b>Definition:</b> progSeq.cpp:171</div></div>
-<div class="ttc" id="aclassprog_seq_html_ab3136f2e070e10ad299db1129436ba52"><div class="ttname"><a href="classprog_seq.html#ab3136f2e070e10ad299db1129436ba52">progSeq::readObstacle</a></div><div class="ttdeci">void readObstacle()</div><div class="ttdoc">Read the front infrared proximity sensors values and store them in RAM for further readings.</div><div class="ttdef"><b>Definition:</b> progSeq.cpp:221</div></div>
-<div class="ttc" id="aclassprog_seq_html_ac6921b3de3e36b8deba90d3db1b78cba"><div class="ttname"><a href="classprog_seq.html#ac6921b3de3e36b8deba90d3db1b78cba">progSeq::waitForButton</a></div><div class="ttdeci">void waitForButton()</div><div class="ttdoc">Blocking function that waits for the joystick button to be pressed.</div><div class="ttdef"><b>Definition:</b> progSeq.cpp:44</div></div>
-<div class="ttc" id="aclassprog_seq_html_acd6464bda0a0cbc7c7d8b3d925db84b2"><div class="ttname"><a href="classprog_seq.html#acd6464bda0a0cbc7c7d8b3d925db84b2">progSeq::screen</a></div><div class="ttdeci">void screen(String text)</div><div class="ttdoc">Display a text on the oled screen.</div><div class="ttdef"><b>Definition:</b> progSeq.cpp:27</div></div>
-<div class="ttc" id="aclassprog_seq_html_aceadd4b156bc682ea0b2b07e81c52c20"><div class="ttname"><a href="classprog_seq.html#aceadd4b156bc682ea0b2b07e81c52c20">progSeq::setSpeed</a></div><div class="ttdeci">void setSpeed(int left, int right)</div><div class="ttdoc">Set the speed for left and right motors.</div><div class="ttdef"><b>Definition:</b> progSeq.cpp:112</div></div>
-<div class="ttc" id="aclassprog_seq_html_ad3a2065cf83996ca13edbc5ad15ce7c7"><div class="ttname"><a href="classprog_seq.html#ad3a2065cf83996ca13edbc5ad15ce7c7">progSeq::init</a></div><div class="ttdeci">void init()</div><div class="ttdoc">Init the robot.</div><div class="ttdef"><b>Definition:</b> progSeq.cpp:11</div></div>
-<div class="ttc" id="aclassprog_seq_html_ad8c12272e2fb701da48995a8785d5b72"><div class="ttname"><a href="classprog_seq.html#ad8c12272e2fb701da48995a8785d5b72">progSeq::getDistance</a></div><div class="ttdeci">int getDistance()</div><div class="ttdoc">Get the ultrasonic range distance.</div><div class="ttdef"><b>Definition:</b> progSeq.cpp:175</div></div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
+<div class="ttc" id="aprog_seq_8h_html_a04a5d0deec648cda95f9547e562e72b4"><div class="ttname"><a href="prog_seq_8h.html#a04a5d0deec648cda95f9547e562e72b4">beepOff</a></div><div class="ttdeci">void beepOff()</div><div class="ttdoc">Stop the buzzer.</div><div class="ttdef"><b>Definition:</b> progSeq.cpp:219</div></div>
+<div class="ttc" id="aprog_seq_8h_html_a1d1d0acc63052e733228c059fe0b7789"><div class="ttname"><a href="prog_seq_8h.html#a1d1d0acc63052e733228c059fe0b7789">getObstacle</a></div><div class="ttdeci">bool getObstacle(byte sensor)</div><div class="ttdoc">Get a specific infrared proximity sensor value.</div><div class="ttdef"><b>Definition:</b> progSeq.cpp:237</div></div>
+<div class="ttc" id="aprog_seq_8h_html_a4717d80629a86cafcba7e97b49aed09c"><div class="ttname"><a href="prog_seq_8h.html#a4717d80629a86cafcba7e97b49aed09c">confirmCalibration</a></div><div class="ttdeci">void confirmCalibration()</div><div class="ttdoc">Blocking function that waits for the joystick button to be pressed, while displaying the black line p...</div><div class="ttdef"><b>Definition:</b> progSeq.cpp:103</div></div>
+<div class="ttc" id="aprog_seq_8h_html_a56d543b93e08f4ad1cb9938dd10de747"><div class="ttname"><a href="prog_seq_8h.html#a56d543b93e08f4ad1cb9938dd10de747">beepOn</a></div><div class="ttdeci">void beepOn()</div><div class="ttdoc">Start the buzzer.</div><div class="ttdef"><b>Definition:</b> progSeq.cpp:215</div></div>
+<div class="ttc" id="aprog_seq_8h_html_a68ba838831800b02c4ba81cc30936094"><div class="ttname"><a href="prog_seq_8h.html#a68ba838831800b02c4ba81cc30936094">getSensor</a></div><div class="ttdeci">int getSensor(int index)</div><div class="ttdoc">Get a specific line sensor value.</div><div class="ttdef"><b>Definition:</b> progSeq.cpp:182</div></div>
+<div class="ttc" id="aprog_seq_8h_html_a8569f8dfba285878435ac80320ce150b"><div class="ttname"><a href="prog_seq_8h.html#a8569f8dfba285878435ac80320ce150b">readObstacle</a></div><div class="ttdeci">void readObstacle()</div><div class="ttdoc">Read the front infrared proximity sensors values and store them in RAM for further readings.</div><div class="ttdef"><b>Definition:</b> progSeq.cpp:232</div></div>
+<div class="ttc" id="aprog_seq_8h_html_a906c879d4d5d9f61eb62e7c7d2845ffe"><div class="ttname"><a href="prog_seq_8h.html#a906c879d4d5d9f61eb62e7c7d2845ffe">waitForButton</a></div><div class="ttdeci">void waitForButton()</div><div class="ttdoc">Blocking function that waits for the joystick button to be pressed.</div><div class="ttdef"><b>Definition:</b> progSeq.cpp:55</div></div>
+<div class="ttc" id="aprog_seq_8h_html_a93514103f081bb26d44a86067ed5af79"><div class="ttname"><a href="prog_seq_8h.html#a93514103f081bb26d44a86067ed5af79">setSpeed</a></div><div class="ttdeci">void setSpeed(int left, int right)</div><div class="ttdoc">Set the speed for left and right motors.</div><div class="ttdef"><b>Definition:</b> progSeq.cpp:123</div></div>
+<div class="ttc" id="aprog_seq_8h_html_aac3c40e5b9732d82de3829b3a61538ef"><div class="ttname"><a href="prog_seq_8h.html#aac3c40e5b9732d82de3829b3a61538ef">setColor</a></div><div class="ttdeci">void setColor(int i, uint32_t color)</div><div class="ttdoc">Set the RGB LED i to the color of your choice.</div><div class="ttdef"><b>Definition:</b> progSeq.cpp:223</div></div>
+<div class="ttc" id="aprog_seq_8h_html_abb86979eea59edc90f12bf759df308d3"><div class="ttname"><a href="prog_seq_8h.html#abb86979eea59edc90f12bf759df308d3">getJoystick</a></div><div class="ttdeci">int getJoystick()</div><div class="ttdoc">Get the Joystick position.</div><div class="ttdef"><b>Definition:</b> progSeq.cpp:241</div></div>
+<div class="ttc" id="aprog_seq_8h_html_abbfc5136e07563b242069f2c368b0365"><div class="ttname"><a href="prog_seq_8h.html#abbfc5136e07563b242069f2c368b0365">getDistance</a></div><div class="ttdeci">int getDistance()</div><div class="ttdoc">Get the ultrasonic range distance.</div><div class="ttdef"><b>Definition:</b> progSeq.cpp:186</div></div>
+<div class="ttc" id="aprog_seq_8h_html_ac61729770a5f433097dc0c06550ab0a7"><div class="ttname"><a href="prog_seq_8h.html#ac61729770a5f433097dc0c06550ab0a7">initRobot</a></div><div class="ttdeci">void initRobot()</div><div class="ttdoc">Init the robot.</div><div class="ttdef"><b>Definition:</b> progSeq.cpp:13</div></div>
+<div class="ttc" id="aprog_seq_8h_html_acbbd246cabf85278512269c3dac9895d"><div class="ttname"><a href="prog_seq_8h.html#acbbd246cabf85278512269c3dac9895d">followLine</a></div><div class="ttdeci">void followLine(int maxSpeed)</div><div class="ttdoc">Execute a follow line code.</div><div class="ttdef"><b>Definition:</b> progSeq.cpp:134</div></div>
+<div class="ttc" id="aprog_seq_8h_html_ad40ccf803c2eff76d7e0e7a24c9937ef"><div class="ttname"><a href="prog_seq_8h.html#ad40ccf803c2eff76d7e0e7a24c9937ef">readSensors</a></div><div class="ttdeci">void readSensors()</div><div class="ttdoc">Read the line sensors value and store them in RAM for further readings.</div><div class="ttdef"><b>Definition:</b> progSeq.cpp:178</div></div>
+<div class="ttc" id="aprog_seq_8h_html_ad4a7316a51b17d0f691bb3e33b95a5ad"><div class="ttname"><a href="prog_seq_8h.html#ad4a7316a51b17d0f691bb3e33b95a5ad">calibrate</a></div><div class="ttdeci">void calibrate()</div><div class="ttdoc">Start a calibration (the robots turns left then right to find the highest and lowest possible brightn...</div><div class="ttdef"><b>Definition:</b> progSeq.cpp:65</div></div>
+<div class="ttc" id="aprog_seq_8h_html_ae7b7ddd9b58ce2ca87434ae95864f1eb"><div class="ttname"><a href="prog_seq_8h.html#ae7b7ddd9b58ce2ca87434ae95864f1eb">screen</a></div><div class="ttdeci">void screen(String text)</div><div class="ttdoc">Display a text on the oled screen.</div><div class="ttdef"><b>Definition:</b> progSeq.cpp:36</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

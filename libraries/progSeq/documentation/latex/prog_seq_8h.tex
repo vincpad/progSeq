@@ -1,0 +1,208 @@
+\hypertarget{prog_seq_8h}{}\doxysubsection{prog\+Seq.\+h File Reference}
+\label{prog_seq_8h}\index{progSeq.h@{progSeq.h}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{prog_seq_8h_ac61729770a5f433097dc0c06550ab0a7}\label{prog_seq_8h_ac61729770a5f433097dc0c06550ab0a7}} 
+void {\bfseries init\+Robot} ()
+\begin{DoxyCompactList}\small\item\em Init the robot. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{prog_seq_8h_a906c879d4d5d9f61eb62e7c7d2845ffe}\label{prog_seq_8h_a906c879d4d5d9f61eb62e7c7d2845ffe}} 
+void {\bfseries wait\+For\+Button} ()
+\begin{DoxyCompactList}\small\item\em Blocking function that waits for the joystick button to be pressed. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{prog_seq_8h_a4717d80629a86cafcba7e97b49aed09c}\label{prog_seq_8h_a4717d80629a86cafcba7e97b49aed09c}} 
+void {\bfseries confirm\+Calibration} ()
+\begin{DoxyCompactList}\small\item\em Blocking function that waits for the joystick button to be pressed, while displaying the black line position to check if the calibration has been done properly. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{prog_seq_8h_ae7b7ddd9b58ce2ca87434ae95864f1eb}{screen}} (String text)
+\begin{DoxyCompactList}\small\item\em Display a text on the oled screen. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{prog_seq_8h_ad4a7316a51b17d0f691bb3e33b95a5ad}\label{prog_seq_8h_ad4a7316a51b17d0f691bb3e33b95a5ad}} 
+void {\bfseries calibrate} ()
+\begin{DoxyCompactList}\small\item\em Start a calibration (the robots turns left then right to find the highest and lowest possible brightness for the floor). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{prog_seq_8h_a93514103f081bb26d44a86067ed5af79}{set\+Speed}} (int left, int right)
+\begin{DoxyCompactList}\small\item\em Set the speed for left and right motors. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{prog_seq_8h_acbbd246cabf85278512269c3dac9895d}{follow\+Line}} (int max\+Speed)
+\begin{DoxyCompactList}\small\item\em Execute a follow line code. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{prog_seq_8h_ad40ccf803c2eff76d7e0e7a24c9937ef}{read\+Sensors}} ()
+\begin{DoxyCompactList}\small\item\em Read the line sensors value and store them in RAM for further readings. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{prog_seq_8h_a68ba838831800b02c4ba81cc30936094}{get\+Sensor}} (int index)
+\begin{DoxyCompactList}\small\item\em Get a specific line sensor value. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{prog_seq_8h_abbfc5136e07563b242069f2c368b0365}{get\+Distance}} ()
+\begin{DoxyCompactList}\small\item\em Get the ultrasonic range distance. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{prog_seq_8h_a8569f8dfba285878435ac80320ce150b}{read\+Obstacle}} ()
+\begin{DoxyCompactList}\small\item\em Read the front infrared proximity sensors values and store them in RAM for further readings. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{prog_seq_8h_a1d1d0acc63052e733228c059fe0b7789}{get\+Obstacle}} (byte sensor)
+\begin{DoxyCompactList}\small\item\em Get a specific infrared proximity sensor value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{prog_seq_8h_aac3c40e5b9732d82de3829b3a61538ef}{set\+Color}} (int i, uint32\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Set the RGB LED i to the color of your choice. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{prog_seq_8h_a56d543b93e08f4ad1cb9938dd10de747}\label{prog_seq_8h_a56d543b93e08f4ad1cb9938dd10de747}} 
+void {\bfseries beep\+On} ()
+\begin{DoxyCompactList}\small\item\em Start the buzzer. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{prog_seq_8h_a04a5d0deec648cda95f9547e562e72b4}\label{prog_seq_8h_a04a5d0deec648cda95f9547e562e72b4}} 
+void {\bfseries beep\+Off} ()
+\begin{DoxyCompactList}\small\item\em Stop the buzzer. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{prog_seq_8h_abb86979eea59edc90f12bf759df308d3}{get\+Joystick}} ()
+\begin{DoxyCompactList}\small\item\em Get the Joystick position. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{prog_seq_8h_af8a3d414e46dae82a94e882f4bd7f1a3}\label{prog_seq_8h_af8a3d414e46dae82a94e882f4bd7f1a3}} 
+void {\bfseries PCF8574\+Write} (byte data)
+\item 
+\mbox{\Hypertarget{prog_seq_8h_a85cc9785b1f8b6a3d84bb496c85ed5aa}\label{prog_seq_8h_a85cc9785b1f8b6a3d84bb496c85ed5aa}} 
+byte {\bfseries PCF8574\+Read} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Function Documentation}
+\mbox{\Hypertarget{prog_seq_8h_acbbd246cabf85278512269c3dac9895d}\label{prog_seq_8h_acbbd246cabf85278512269c3dac9895d}} 
+\index{progSeq.h@{progSeq.h}!followLine@{followLine}}
+\index{followLine@{followLine}!progSeq.h@{progSeq.h}}
+\doxyparagraph{\texorpdfstring{followLine()}{followLine()}}
+{\footnotesize\ttfamily void follow\+Line (\begin{DoxyParamCaption}\item[{int}]{max\+Speed }\end{DoxyParamCaption})}
+
+
+
+Execute a follow line code. 
+
+When this is executed in a loop, the robot will read the line position and modify its motor speeds to go forward while saying on the line.
+
+
+\begin{DoxyParams}{Parameters}
+{\em max\+Speed} & The running speed of the robot (0 to 200 recommended) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{prog_seq_8h_abbfc5136e07563b242069f2c368b0365}\label{prog_seq_8h_abbfc5136e07563b242069f2c368b0365}} 
+\index{progSeq.h@{progSeq.h}!getDistance@{getDistance}}
+\index{getDistance@{getDistance}!progSeq.h@{progSeq.h}}
+\doxyparagraph{\texorpdfstring{getDistance()}{getDistance()}}
+{\footnotesize\ttfamily int get\+Distance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the ultrasonic range distance. 
+
+\begin{DoxyReturn}{Returns}
+Distance in cm. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{prog_seq_8h_abb86979eea59edc90f12bf759df308d3}\label{prog_seq_8h_abb86979eea59edc90f12bf759df308d3}} 
+\index{progSeq.h@{progSeq.h}!getJoystick@{getJoystick}}
+\index{getJoystick@{getJoystick}!progSeq.h@{progSeq.h}}
+\doxyparagraph{\texorpdfstring{getJoystick()}{getJoystick()}}
+{\footnotesize\ttfamily int get\+Joystick (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the Joystick position. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily JOY\+\_\+\+UNKNOWN} if the position is unknown. 
+
+\textquotesingle{}JOY\+\_\+\+CENTER\textquotesingle{}, {\ttfamily JOY\+\_\+\+LEFT}, {\ttfamily JOY\+\_\+\+RIGHT}, {\ttfamily JOY\+\_\+\+UP} or {\ttfamily JOY\+\_\+\+DOWN} in other cases. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{prog_seq_8h_a1d1d0acc63052e733228c059fe0b7789}\label{prog_seq_8h_a1d1d0acc63052e733228c059fe0b7789}} 
+\index{progSeq.h@{progSeq.h}!getObstacle@{getObstacle}}
+\index{getObstacle@{getObstacle}!progSeq.h@{progSeq.h}}
+\doxyparagraph{\texorpdfstring{getObstacle()}{getObstacle()}}
+{\footnotesize\ttfamily bool get\+Obstacle (\begin{DoxyParamCaption}\item[{byte}]{sensor }\end{DoxyParamCaption})}
+
+
+
+Get a specific infrared proximity sensor value. 
+
+NOTE \+: To get updated values, you must first run \mbox{\hyperlink{prog_seq_8h_a8569f8dfba285878435ac80320ce150b}{read\+Obstacle()}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em sensor} & The sensor you want to read value from ({\ttfamily LEFT} or {\ttfamily RIGHT}). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if there is an obstacle. 
+
+false if there is no obstacle. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{prog_seq_8h_a68ba838831800b02c4ba81cc30936094}\label{prog_seq_8h_a68ba838831800b02c4ba81cc30936094}} 
+\index{progSeq.h@{progSeq.h}!getSensor@{getSensor}}
+\index{getSensor@{getSensor}!progSeq.h@{progSeq.h}}
+\doxyparagraph{\texorpdfstring{getSensor()}{getSensor()}}
+{\footnotesize\ttfamily int get\+Sensor (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+Get a specific line sensor value. 
+
+NOTE \+: To get updated values, you must first run \mbox{\hyperlink{prog_seq_8h_ad40ccf803c2eff76d7e0e7a24c9937ef}{read\+Sensors()}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The id of the sensor tou want to get the value from, between 0 and 5. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value of the sensor, between 0 and 1000;. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{prog_seq_8h_a8569f8dfba285878435ac80320ce150b}\label{prog_seq_8h_a8569f8dfba285878435ac80320ce150b}} 
+\index{progSeq.h@{progSeq.h}!readObstacle@{readObstacle}}
+\index{readObstacle@{readObstacle}!progSeq.h@{progSeq.h}}
+\doxyparagraph{\texorpdfstring{readObstacle()}{readObstacle()}}
+{\footnotesize\ttfamily void read\+Obstacle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Read the front infrared proximity sensors values and store them in RAM for further readings. 
+
+NOTE \+: As it\textquotesingle{}s a void, it doesn\textquotesingle{}t return anything, you have to call \mbox{\hyperlink{prog_seq_8h_a1d1d0acc63052e733228c059fe0b7789}{get\+Obstacle(byte sensor)}} to get the actual values for each of the 2 sensors. \mbox{\Hypertarget{prog_seq_8h_ad40ccf803c2eff76d7e0e7a24c9937ef}\label{prog_seq_8h_ad40ccf803c2eff76d7e0e7a24c9937ef}} 
+\index{progSeq.h@{progSeq.h}!readSensors@{readSensors}}
+\index{readSensors@{readSensors}!progSeq.h@{progSeq.h}}
+\doxyparagraph{\texorpdfstring{readSensors()}{readSensors()}}
+{\footnotesize\ttfamily void read\+Sensors (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Read the line sensors value and store them in RAM for further readings. 
+
+NOTE \+: As it\textquotesingle{}s a void, it doesn\textquotesingle{}t return anything, you have to call \mbox{\hyperlink{prog_seq_8h_a68ba838831800b02c4ba81cc30936094}{get\+Sensor(int index)}} to get the actual values for each of the 5 sensors. \mbox{\Hypertarget{prog_seq_8h_ae7b7ddd9b58ce2ca87434ae95864f1eb}\label{prog_seq_8h_ae7b7ddd9b58ce2ca87434ae95864f1eb}} 
+\index{progSeq.h@{progSeq.h}!screen@{screen}}
+\index{screen@{screen}!progSeq.h@{progSeq.h}}
+\doxyparagraph{\texorpdfstring{screen()}{screen()}}
+{\footnotesize\ttfamily void screen (\begin{DoxyParamCaption}\item[{String}]{text }\end{DoxyParamCaption})}
+
+
+
+Display a text on the oled screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & Multiline text to display, add a {\ttfamily \textbackslash{}n} to print on the next line. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{prog_seq_8h_aac3c40e5b9732d82de3829b3a61538ef}\label{prog_seq_8h_aac3c40e5b9732d82de3829b3a61538ef}} 
+\index{progSeq.h@{progSeq.h}!setColor@{setColor}}
+\index{setColor@{setColor}!progSeq.h@{progSeq.h}}
+\doxyparagraph{\texorpdfstring{setColor()}{setColor()}}
+{\footnotesize\ttfamily void set\+Color (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{uint32\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+Set the RGB LED i to the color of your choice. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & The index of the led you want to set the color. \\
+\hline
+{\em color} & An RGB color, you can use {\ttfamily RED}, {\ttfamily BLUE}, {\ttfamily GREEN}, {\ttfamily BLACK} and {\ttfamily WHITE}, but you can also use hexadecimal codes ({\ttfamily 0x\+RRGGBB}). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{prog_seq_8h_a93514103f081bb26d44a86067ed5af79}\label{prog_seq_8h_a93514103f081bb26d44a86067ed5af79}} 
+\index{progSeq.h@{progSeq.h}!setSpeed@{setSpeed}}
+\index{setSpeed@{setSpeed}!progSeq.h@{progSeq.h}}
+\doxyparagraph{\texorpdfstring{setSpeed()}{setSpeed()}}
+{\footnotesize\ttfamily void set\+Speed (\begin{DoxyParamCaption}\item[{int}]{left,  }\item[{int}]{right }\end{DoxyParamCaption})}
+
+
+
+Set the speed for left and right motors. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em left} & An integer between -\/255 (backwards full speed) and 255 (forward fulls speed) for the left motor \\
+\hline
+{\em right} & An integer between -\/255 (backwards full speed) and 255 (forward fulls speed) for the right motor \\
+\hline
+\end{DoxyParams}

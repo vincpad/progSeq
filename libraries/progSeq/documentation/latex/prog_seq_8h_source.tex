@@ -1,102 +1,98 @@
 \hypertarget{prog_seq_8h_source}{}\doxysubsection{prog\+Seq.\+h}
-
+\mbox{\hyperlink{prog_seq_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef PROGSEQ\_H}}
-\DoxyCodeLine{2 \textcolor{preprocessor}{\#define PROGSEQ\_H}}
-\DoxyCodeLine{3 }
-\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <Adafruit\_GFX.h>}}
-\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <Adafruit\_NeoPixel.h>}}
-\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <Adafruit\_SSD1306.h>}}
-\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <TRSensors.h>}}
-\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <Wire.h>}}
-\DoxyCodeLine{9 }
-\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <Arduino.h>}}
-\DoxyCodeLine{11 }
-\DoxyCodeLine{12 \textcolor{preprocessor}{\#define PWMA 6   }\textcolor{comment}{// Left Motor Speed pin (ENA)}}
-\DoxyCodeLine{13 \textcolor{preprocessor}{\#define AIN2 A0  }\textcolor{comment}{// Motor-\/L forward (IN2).}}
-\DoxyCodeLine{14 \textcolor{preprocessor}{\#define AIN1 A1  }\textcolor{comment}{// Motor-\/L backward (IN1)}}
-\DoxyCodeLine{15 \textcolor{preprocessor}{\#define PWMB 5   }\textcolor{comment}{// Right Motor Speed pin (ENB)}}
-\DoxyCodeLine{16 \textcolor{preprocessor}{\#define BIN1 A2  }\textcolor{comment}{// Motor-\/R forward (IN3)}}
-\DoxyCodeLine{17 \textcolor{preprocessor}{\#define BIN2 A3  }\textcolor{comment}{// Motor-\/R backward (IN4)}}
-\DoxyCodeLine{18 \textcolor{preprocessor}{\#define PIN 7}}
-\DoxyCodeLine{19 \textcolor{preprocessor}{\#define NUM\_SENSORS 5}}
-\DoxyCodeLine{20 \textcolor{preprocessor}{\#define OLED\_RESET 9}}
-\DoxyCodeLine{21 \textcolor{preprocessor}{\#define OLED\_SA0 8}}
-\DoxyCodeLine{22 \textcolor{preprocessor}{\#define Addr 0x20}}
-\DoxyCodeLine{23 \textcolor{preprocessor}{\#define IR 4  }\textcolor{comment}{// he infrare remote receiver pin}}
-\DoxyCodeLine{24 \textcolor{preprocessor}{\#define ECHO 2}}
-\DoxyCodeLine{25 \textcolor{preprocessor}{\#define TRIG 3}}
-\DoxyCodeLine{26 }
-\DoxyCodeLine{27 \textcolor{preprocessor}{\#define KEY2 0x18        }\textcolor{comment}{// Key:2}}
-\DoxyCodeLine{28 \textcolor{preprocessor}{\#define KEY8 0x52        }\textcolor{comment}{// Key:8}}
-\DoxyCodeLine{29 \textcolor{preprocessor}{\#define KEY4 0x08        }\textcolor{comment}{// Key:4}}
-\DoxyCodeLine{30 \textcolor{preprocessor}{\#define KEY6 0x5A        }\textcolor{comment}{// Key:6}}
-\DoxyCodeLine{31 \textcolor{preprocessor}{\#define KEY1 0x0C        }\textcolor{comment}{// Key:1}}
-\DoxyCodeLine{32 \textcolor{preprocessor}{\#define KEY3 0x5E        }\textcolor{comment}{// Key:3}}
-\DoxyCodeLine{33 \textcolor{preprocessor}{\#define KEY5 0x1C        }\textcolor{comment}{// Key:5}}
-\DoxyCodeLine{34 \textcolor{preprocessor}{\#define SpeedDown 0x07   }\textcolor{comment}{// Key:VOL-\/}}
-\DoxyCodeLine{35 \textcolor{preprocessor}{\#define SpeedUp 0x15     }\textcolor{comment}{// Key:VOL+}}
-\DoxyCodeLine{36 \textcolor{preprocessor}{\#define ResetSpeed 0x09  }\textcolor{comment}{// Key:EQ}}
-\DoxyCodeLine{37 \textcolor{preprocessor}{\#define Repeat 0xFF      }\textcolor{comment}{// press and hold the key}}
-\DoxyCodeLine{38 }
-\DoxyCodeLine{39 \textcolor{preprocessor}{\#define BLACK 0x000000}}
-\DoxyCodeLine{40 \textcolor{preprocessor}{\#define RED   0xFF0000}}
-\DoxyCodeLine{41 \textcolor{preprocessor}{\#define GREEN 0x00FF00}}
-\DoxyCodeLine{42 \textcolor{preprocessor}{\#define BLUE  0x0000FF}}
-\DoxyCodeLine{43 \textcolor{preprocessor}{\#define WHITE 0xFFFFFF}}
-\DoxyCodeLine{44 }
-\DoxyCodeLine{45 \textcolor{preprocessor}{\#define RIGHT 0X40}}
-\DoxyCodeLine{46 \textcolor{preprocessor}{\#define LEFT  0x80}}
-\DoxyCodeLine{47 }
-\DoxyCodeLine{48 \textcolor{preprocessor}{\#define JOY\_UNKNOWN -\/1}}
-\DoxyCodeLine{49 \textcolor{preprocessor}{\#define JOY\_LEFT 1}}
-\DoxyCodeLine{50 \textcolor{preprocessor}{\#define JOY\_RIGHT 2}}
-\DoxyCodeLine{51 \textcolor{preprocessor}{\#define JOY\_UP 3}}
-\DoxyCodeLine{52 \textcolor{preprocessor}{\#define JOY\_DOWN 4}}
-\DoxyCodeLine{53 \textcolor{preprocessor}{\#define JOY\_CENTER 5}}
-\DoxyCodeLine{54 }
-\DoxyCodeLine{55 }
-\DoxyCodeLine{56 \textcolor{preprocessor}{\#define beep\_on PCF8574Write(0xDF \& PCF8574Read())}}
-\DoxyCodeLine{57 \textcolor{preprocessor}{\#define beep\_off PCF8574Write(0x20 | PCF8574Read())}}
-\DoxyCodeLine{58 }
-\DoxyCodeLine{59 \textcolor{keyword}{extern} Adafruit\_SSD1306 display;}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef PROGSEQ\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define PROGSEQ\_H}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <Arduino.h>}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{comment}{// \#include <Adafruit\_GFX.h>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <Adafruit\_NeoPixel.h>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <Adafruit\_SSD1306.h>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <TRSensors.h>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <Wire.h>}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#define PWMA 6   }\textcolor{comment}{// Left Motor Speed pin (ENA)}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#define AIN2 A0  }\textcolor{comment}{// Motor-\/L forward (IN2).}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define AIN1 A1  }\textcolor{comment}{// Motor-\/L backward (IN1)}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#define PWMB 5   }\textcolor{comment}{// Right Motor Speed pin (ENB)}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#define BIN1 A2  }\textcolor{comment}{// Motor-\/R forward (IN3)}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#define BIN2 A3  }\textcolor{comment}{// Motor-\/R backward (IN4)}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#define PIN 7}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#define NUM\_SENSORS 5}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#define SCREEN\_WIDTH 128 }\textcolor{comment}{// OLED display width, in pixels}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#define SCREEN\_HEIGHT 32 }\textcolor{comment}{// OLED display height, in pixels}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#define OLED\_RESET     9 }\textcolor{comment}{// Reset pin \# (or -\/1 if sharing Arduino reset pin)}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#define SCREEN\_ADDRESS 0x3C }}
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#define Addr 0x20}}
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#define IR 4  }\textcolor{comment}{// he infrare remote receiver pin}}
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#define ECHO 2}}
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#define TRIG 3}}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#define KEY2 0x18        }\textcolor{comment}{// Key:2}}
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#define KEY8 0x52        }\textcolor{comment}{// Key:8}}
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#define KEY4 0x08        }\textcolor{comment}{// Key:4}}
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#define KEY6 0x5A        }\textcolor{comment}{// Key:6}}
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#define KEY1 0x0C        }\textcolor{comment}{// Key:1}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#define KEY3 0x5E        }\textcolor{comment}{// Key:3}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#define KEY5 0x1C        }\textcolor{comment}{// Key:5}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#define SpeedDown 0x07   }\textcolor{comment}{// Key:VOL-\/}}
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#define SpeedUp 0x15     }\textcolor{comment}{// Key:VOL+}}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#define ResetSpeed 0x09  }\textcolor{comment}{// Key:EQ}}
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#define Repeat 0xFF      }\textcolor{comment}{// press and hold the key}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#define BLACK 0x000000}}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#define RED   0xFF0000}}
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#define GREEN 0x00FF00}}
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#define BLUE  0x0000FF}}
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#define WHITE 0xFFFFFF}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#define RIGHT 0X40}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#define LEFT  0x80}}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#define JOY\_UNKNOWN -\/1}}
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#define JOY\_LEFT 1}}
+\DoxyCodeLine{55 \textcolor{preprocessor}{\#define JOY\_RIGHT 2}}
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#define JOY\_UP 3}}
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#define JOY\_DOWN 4}}
+\DoxyCodeLine{58 \textcolor{preprocessor}{\#define JOY\_CENTER 5}}
+\DoxyCodeLine{59 }
 \DoxyCodeLine{60 }
-\DoxyCodeLine{61 \textcolor{keyword}{extern} Adafruit\_NeoPixel RGB;}
-\DoxyCodeLine{62 }
-\DoxyCodeLine{63 \textcolor{keyword}{class }\mbox{\hyperlink{classprog_seq}{progSeq}} \{}
-\DoxyCodeLine{64  \textcolor{keyword}{public}:}
-\DoxyCodeLine{69   \mbox{\hyperlink{classprog_seq_a03759370cef49e0aecd3d22be4730872}{progSeq}}();}
-\DoxyCodeLine{74   \textcolor{keywordtype}{void} \mbox{\hyperlink{classprog_seq_ad3a2065cf83996ca13edbc5ad15ce7c7}{init}}();}
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#define beep\_on PCF8574Write(0xDF \& PCF8574Read())}}
+\DoxyCodeLine{62 \textcolor{preprocessor}{\#define beep\_off PCF8574Write(0x20 | PCF8574Read())}}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64 \textcolor{comment}{// extern Adafruit\_SSD1306 display;}}
+\DoxyCodeLine{65 \textcolor{keyword}{extern} Adafruit\_NeoPixel RGB;}
+\DoxyCodeLine{66 \textcolor{keyword}{extern} TRSensors trs;}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{74   \textcolor{keywordtype}{void} \mbox{\hyperlink{prog_seq_8h_ac61729770a5f433097dc0c06550ab0a7}{initRobot}}();}
 \DoxyCodeLine{75 }
-\DoxyCodeLine{80   \textcolor{keywordtype}{void} \mbox{\hyperlink{classprog_seq_ac6921b3de3e36b8deba90d3db1b78cba}{waitForButton}}();}
-\DoxyCodeLine{85   \textcolor{keywordtype}{void} \mbox{\hyperlink{classprog_seq_a3d9ba609ea0d34e7cb278770f261c1e6}{confirmCalibration}}();}
-\DoxyCodeLine{91   \textcolor{keywordtype}{void} \mbox{\hyperlink{classprog_seq_acd6464bda0a0cbc7c7d8b3d925db84b2}{screen}}(String text);}
-\DoxyCodeLine{96   \textcolor{keywordtype}{void} \mbox{\hyperlink{classprog_seq_aa9c766c833da656010ea5da35f937213}{calibrate}}();  \textcolor{comment}{// calibrate line sensors}}
-\DoxyCodeLine{103 \textcolor{comment}{}  \textcolor{keywordtype}{void} \mbox{\hyperlink{classprog_seq_aceadd4b156bc682ea0b2b07e81c52c20}{setSpeed}}(\textcolor{keywordtype}{int} left, \textcolor{keywordtype}{int} right);  \textcolor{comment}{// -\/255 (backward) to 255 (forward)}}
-\DoxyCodeLine{110 \textcolor{comment}{}  \textcolor{keywordtype}{void} \mbox{\hyperlink{classprog_seq_a4a1f57f3d0f1fdea0c932f7e2cd0ea9c}{followLine}}(\textcolor{keywordtype}{int} maxSpeed);  \textcolor{comment}{// move motors according to line position}}
-\DoxyCodeLine{115 \textcolor{comment}{}  \textcolor{keywordtype}{void} \mbox{\hyperlink{classprog_seq_a53073855397000e8d002e45f8a8ee44d}{readSensors}}();  \textcolor{comment}{// update sensors state}}
-\DoxyCodeLine{123 \textcolor{comment}{}  \textcolor{keywordtype}{int} \mbox{\hyperlink{classprog_seq_aaf1e2a26f1918105a80a463c57de0336}{getSensor}}(\textcolor{keywordtype}{int} index);  \textcolor{comment}{// get sensors values, index 0 to 5}}
-\DoxyCodeLine{129 \textcolor{comment}{}  \textcolor{keywordtype}{int} \mbox{\hyperlink{classprog_seq_ad8c12272e2fb701da48995a8785d5b72}{getDistance}}();}
-\DoxyCodeLine{135   \textcolor{keywordtype}{void} \mbox{\hyperlink{classprog_seq_ab3136f2e070e10ad299db1129436ba52}{readObstacle}}();}
-\DoxyCodeLine{144   \textcolor{keywordtype}{bool} \mbox{\hyperlink{classprog_seq_a2f8678850a98b5c3b6991f8cb3b51092}{getObstacle}}(\textcolor{keywordtype}{byte} sensor);}
-\DoxyCodeLine{151   \textcolor{keywordtype}{void} \mbox{\hyperlink{classprog_seq_a1e7366e95f5a9a38a567c03de1e6803b}{setColor}}(\textcolor{keywordtype}{int} i, uint32\_t color);}
-\DoxyCodeLine{156   \textcolor{keywordtype}{void} \mbox{\hyperlink{classprog_seq_a20c8292537ae3049923a269a5a287405}{beepOn}}();}
-\DoxyCodeLine{161   \textcolor{keywordtype}{void} \mbox{\hyperlink{classprog_seq_a3f52507582b66d60a2acc04e93e35ac2}{beepOff}}();}
-\DoxyCodeLine{168   \textcolor{keywordtype}{int} \mbox{\hyperlink{classprog_seq_a66caa10dc09b55a5308c8c4247054376}{getJoystick}}();}
+\DoxyCodeLine{80   \textcolor{keywordtype}{void} \mbox{\hyperlink{prog_seq_8h_a906c879d4d5d9f61eb62e7c7d2845ffe}{waitForButton}}();}
+\DoxyCodeLine{85   \textcolor{keywordtype}{void} \mbox{\hyperlink{prog_seq_8h_a4717d80629a86cafcba7e97b49aed09c}{confirmCalibration}}();}
+\DoxyCodeLine{91   \textcolor{keywordtype}{void} \mbox{\hyperlink{prog_seq_8h_ae7b7ddd9b58ce2ca87434ae95864f1eb}{screen}}(String text);}
+\DoxyCodeLine{96   \textcolor{keywordtype}{void} \mbox{\hyperlink{prog_seq_8h_ad4a7316a51b17d0f691bb3e33b95a5ad}{calibrate}}();  \textcolor{comment}{// calibrate line sensors}}
+\DoxyCodeLine{103 \textcolor{comment}{}  \textcolor{keywordtype}{void} \mbox{\hyperlink{prog_seq_8h_a93514103f081bb26d44a86067ed5af79}{setSpeed}}(\textcolor{keywordtype}{int} left, \textcolor{keywordtype}{int} right);  \textcolor{comment}{// -\/255 (backward) to 255 (forward)}}
+\DoxyCodeLine{110 \textcolor{comment}{}  \textcolor{keywordtype}{void} \mbox{\hyperlink{prog_seq_8h_acbbd246cabf85278512269c3dac9895d}{followLine}}(\textcolor{keywordtype}{int} maxSpeed);  \textcolor{comment}{// move motors according to line position}}
+\DoxyCodeLine{115 \textcolor{comment}{}  \textcolor{keywordtype}{void} \mbox{\hyperlink{prog_seq_8h_ad40ccf803c2eff76d7e0e7a24c9937ef}{readSensors}}();  \textcolor{comment}{// update sensors state}}
+\DoxyCodeLine{123 \textcolor{comment}{}  \textcolor{keywordtype}{int} \mbox{\hyperlink{prog_seq_8h_a68ba838831800b02c4ba81cc30936094}{getSensor}}(\textcolor{keywordtype}{int} index);  \textcolor{comment}{// get sensors values, index 0 to 5}}
+\DoxyCodeLine{129 \textcolor{comment}{}  \textcolor{keywordtype}{int} \mbox{\hyperlink{prog_seq_8h_abbfc5136e07563b242069f2c368b0365}{getDistance}}();}
+\DoxyCodeLine{135   \textcolor{keywordtype}{void} \mbox{\hyperlink{prog_seq_8h_a8569f8dfba285878435ac80320ce150b}{readObstacle}}();}
+\DoxyCodeLine{144   \textcolor{keywordtype}{bool} \mbox{\hyperlink{prog_seq_8h_a1d1d0acc63052e733228c059fe0b7789}{getObstacle}}(\textcolor{keywordtype}{byte} sensor);}
+\DoxyCodeLine{151   \textcolor{keywordtype}{void} \mbox{\hyperlink{prog_seq_8h_aac3c40e5b9732d82de3829b3a61538ef}{setColor}}(\textcolor{keywordtype}{int} i, uint32\_t color);}
+\DoxyCodeLine{156   \textcolor{keywordtype}{void} \mbox{\hyperlink{prog_seq_8h_a56d543b93e08f4ad1cb9938dd10de747}{beepOn}}();}
+\DoxyCodeLine{161   \textcolor{keywordtype}{void} \mbox{\hyperlink{prog_seq_8h_a04a5d0deec648cda95f9547e562e72b4}{beepOff}}();}
+\DoxyCodeLine{168   \textcolor{keywordtype}{int} \mbox{\hyperlink{prog_seq_8h_abb86979eea59edc90f12bf759df308d3}{getJoystick}}();}
 \DoxyCodeLine{169 }
-\DoxyCodeLine{170  \textcolor{keyword}{private}:}
-\DoxyCodeLine{171   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} sensorValues[NUM\_SENSORS];}
-\DoxyCodeLine{172 }
-\DoxyCodeLine{173   TRSensors trs = TRSensors();}
-\DoxyCodeLine{174 }
-\DoxyCodeLine{175   \textcolor{keywordtype}{int} obstacle;}
+\DoxyCodeLine{170   }
+\DoxyCodeLine{171 }
+\DoxyCodeLine{172   \textcolor{keywordtype}{void} PCF8574Write(\textcolor{keywordtype}{byte} data);}
+\DoxyCodeLine{173   \textcolor{keywordtype}{byte} PCF8574Read();}
+\DoxyCodeLine{174   }
+\DoxyCodeLine{175 \textcolor{preprocessor}{\#endif}}
 \DoxyCodeLine{176 }
-\DoxyCodeLine{177   \textcolor{keywordtype}{void} PCF8574Write(\textcolor{keywordtype}{byte} data);}
-\DoxyCodeLine{178   \textcolor{keywordtype}{byte} PCF8574Read();}
-\DoxyCodeLine{179 \};}
-\DoxyCodeLine{180 }
-\DoxyCodeLine{181 \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{182 }
-\DoxyCodeLine{183 }
+\DoxyCodeLine{177 }
 
 \end{DoxyCode}

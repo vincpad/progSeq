@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['waitforbutton_0',['waitForButton',['../classprog_seq.html#ac6921b3de3e36b8deba90d3db1b78cba',1,'progSeq']]]
+  ['waitforbutton_0',['waitForButton',['../prog_seq_8h.html#a906c879d4d5d9f61eb62e7c7d2845ffe',1,'progSeq.cpp']]]
 ];

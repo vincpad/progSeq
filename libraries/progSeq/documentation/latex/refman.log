@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2022.1.28)  27 FEB 2022 11:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2022.1.28)  2 MAR 2022 21:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -877,7 +877,7 @@ LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 Package hyperref Info: Option `pageanchor' set `true' on input line 173.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 12.9599pt on input line 175.
- (./classprog_seq.tex
+ (./prog_seq_8h.tex
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 10.79993pt on input line 1.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
@@ -894,26 +894,25 @@ LaTeX Font Info:    Font shape `T1/phv/m/it' in size <9> not available
 (Font)              Font shape `T1/phv/m/sl' tried instead on input line 8.
 LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
 (Font)              scaled to size 8.09995pt on input line 8.
- [1]
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 7.19995pt on input line 54.
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 54
+(Font)              scaled to size 7.19995pt on input line 57.
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 57
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <8> not available
-(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 54.
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 57.
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <7> not available
-(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 54.
-
-Underfull \hbox (badness 10000) detected at line 77
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 57.
+ [1]
+Underfull \hbox (badness 10000) detected at line 80
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 90
+Underfull \hbox (badness 10000) detected at line 93
 [][][]
  []
 
@@ -922,12 +921,12 @@ Overfull \vbox (8.11922pt too high) has occurred while \output is active []
 
 
 [2]
-Underfull \hbox (badness 10000) detected at line 112
+Underfull \hbox (badness 10000) detected at line 115
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 134
+Underfull \hbox (badness 10000) detected at line 137
 [][][]
  []
 
@@ -941,26 +940,26 @@ LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
 
 ]) (./refman.aux)
 Package rerunfilecheck Info: File `refman.out' has not changed.
-(rerunfilecheck)             Checksum: 83E7892827D2C03A51BBFE07C8B1D437;949.
+(rerunfilecheck)             Checksum: 6C988C51AADC70A6D051C1B67828E2E4;762.
  ) 
 Here is how much of TeX's memory you used:
  17224 strings out of 479304
- 255498 string characters out of 5869779
- 594193 words of memory out of 5000000
+ 255490 string characters out of 5869779
+ 594117 words of memory out of 5000000
  34046 multiletter control sequences out of 15000+600000
  449189 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 112i,15n,117p,469b,601s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 112i,15n,117p,467b,601s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/urw/courier/ucrro8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/
 urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic
 /uhvb8ac.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb
 ></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on refman.pdf (8 pages, 78499 bytes).
+Output written on refman.pdf (8 pages, 77301 bytes).
 PDF statistics:
- 201 PDF objects out of 1000 (max. 8388607)
- 183 compressed objects within 2 object streams
+ 196 PDF objects out of 1000 (max. 8388607)
+ 178 compressed objects within 2 object streams
  52 named destinations out of 1000 (max. 500000)
- 49 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
