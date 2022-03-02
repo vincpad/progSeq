@@ -1,17 +1,26 @@
 #include "progSeq.h"
 
-Adafruit_NeoPixel RGB = Adafruit_NeoPixel(4, PIN, NEO_GRB + NEO_KHZ800);
-Adafruit_SSD1306 display(OLED_RESET, OLED_SA0);
 
-// Base class data member initialization (called by derived class init())
-progSeq::progSeq() {
-  // nothing to do here
-}
 
-void progSeq::init() {
-  Serial.begin(115200);
-  Wire.begin();
-  display.begin(SSD1306_SWITCHCAPVCC, 0x3C);  // initialize with the I2C addr 0x3D (for the 128x64)
+unsigned int sensorValues[NUM_SENSORS];
+
+Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
+Adafruit_NeoPixel pixels(4, PIN, NEO_GRB + NEO_KHZ800);
+TRSensors trs = TRSensors();
+
+int obstacle;
+
+void initRobot() {
+  if(!display.begin(SSD1306_SWITCHCAPVCC, SCREEN_ADDRESS)) {
+    Serial.println(F("SSD1306 allocation failed"));
+    for(;;); // Don't proceed, loop forever
+  }
+  display.display();
+
+  pixels.begin();
+  pixels.clear(); // Set all pixel colors to 'off'
+
+  // display.begin(SSD1306_SWITCHCAPVCC, 0x3C);  // initialize with the I2C addr 0x3D (for the 128x64)
   // init
   pinMode(IR, INPUT);
   pinMode(PWMA, OUTPUT);
@@ -24,24 +33,26 @@ void progSeq::init() {
   analogWrite(PWMB, 0);
 }
 
-void progSeq::screen(String text) {
+void screen(String text) {
   display.clearDisplay();
   display.setTextSize(1);
-  display.setTextColor(WHITE);
-  display.setCursor(5, 0);
+  display.setTextColor(SSD1306_WHITE);
+  display.setCursor(0, 0);
   while (text.length() > 0) {
     char firstChar = text.charAt(0);
     if (firstChar != '\n') {
       display.print(firstChar);
+      Serial.print(firstChar);
     } else {
       display.println();
+      Serial.println();
     }
     text = text.substring(1);
   }
   display.display();
 }
 
-void progSeq::waitForButton() {
+void waitForButton() {
   byte value = 0;
 
   while (value != 0xEF)  // wait button pressed
@@ -51,13 +62,13 @@ void progSeq::waitForButton() {
   }
 }
 
-void progSeq::calibrate() {
-  RGB.begin();
-  RGB.setPixelColor(0, 0x00FF00);
-  RGB.setPixelColor(1, 0x00FF00);
-  RGB.setPixelColor(2, 0x00FF00);
-  RGB.setPixelColor(3, 0x00FF00);
-  RGB.show();
+void calibrate() {
+  pixels.begin();
+  pixels.setPixelColor(0, 0x00FF00);
+  pixels.setPixelColor(1, 0x00FF00);
+  pixels.setPixelColor(2, 0x00FF00);
+  pixels.setPixelColor(3, 0x00FF00);
+  pixels.show();
   delay(500);
   analogWrite(PWMA, 80);
   analogWrite(PWMB, 80);
@@ -82,34 +93,34 @@ void progSeq::calibrate() {
   digitalWrite(AIN1, LOW);
   digitalWrite(BIN1, LOW);
   digitalWrite(BIN2, LOW);
-  RGB.setPixelColor(0, 0x0000FF);
-  RGB.setPixelColor(1, 0x0000FF);
-  RGB.setPixelColor(2, 0x0000FF);
-  RGB.setPixelColor(3, 0x0000FF);
-  RGB.show();  // Initialize all pixels to 'off'
+  pixels.setPixelColor(0, 0x0000FF);
+  pixels.setPixelColor(1, 0x0000FF);
+  pixels.setPixelColor(2, 0x0000FF);
+  pixels.setPixelColor(3, 0x0000FF);
+  pixels.show();  // Initialize all pixels to 'off'
 }
 
-void progSeq::confirmCalibration() {
+void confirmCalibration() {
   byte value = 0;
   while (value != 0xEF)  // wait button pressed
   {
     PCF8574Write(0x1F | PCF8574Read());
     value = PCF8574Read() | 0xE0;
     unsigned int position = trs.readLine(sensorValues) / 200;
-    display.clearDisplay();
-    display.setCursor(0, 25);
-    display.println("Calibration Done !!!");
-    display.setCursor(0, 55);
+    // // display.clearDisplay();
+    // display.setCursor(0, 25);
+    // display.println("Calibration Done !!!");
+    // display.setCursor(0, 55);
     for (int i = 0; i < 21; i++) {
-      display.print('_');
+      // display.print('_');
     }
-    display.setCursor(position * 6, 55);
-    display.print("**");
-    display.display();
+    // display.setCursor(position * 6, 55);
+    // display.print("**");
+    // // display.display();
   }
 }
 
-void progSeq::setSpeed(int left, int right) {  // -255 to 255
+void setSpeed(int left, int right) {  // -255 to 255
 
   digitalWrite(AIN1, left < 0);
   digitalWrite(AIN2, left > 0);
@@ -120,7 +131,7 @@ void progSeq::setSpeed(int left, int right) {  // -255 to 255
   analogWrite(PWMB, right * (-1 + 2 * (right > 0)));
 }
 
-void progSeq::followLine(int maxSpeed) {  // move motors according to line position
+void followLine(int maxSpeed) {  // move motors according to line position
 
   static long integral = 0, last_proportional = 0;
 
@@ -164,15 +175,15 @@ void progSeq::followLine(int maxSpeed) {  // move motors according to line posit
   }
 }
 
-void progSeq::readSensors() {  // get sensors state
+void readSensors() {  // get sensors state
   trs.readLine(sensorValues);
 }
 
-int progSeq::getSensor(int index) {  // get sensors values, index 0 to 5
+int getSensor(int index) {  // get sensors values, index 0 to 5
   return sensorValues[index];
 }
 
-int progSeq::getDistance()  // Measure the distance
+int getDistance()  // Measure the distance
 {
   digitalWrite(TRIG, LOW);  // set trig pin low 2μs
   delayMicroseconds(2);
@@ -186,13 +197,13 @@ int progSeq::getDistance()  // Measure the distance
 }
 
 
-void progSeq::PCF8574Write(byte data) {
+void PCF8574Write(byte data) {
   Wire.beginTransmission(Addr);
   Wire.write(data);
   Wire.endTransmission();
 }
 
-byte progSeq::PCF8574Read() {
+byte PCF8574Read() {
   int data = -1;
   Wire.requestFrom(Addr, 1);
   if (Wire.available()) {
@@ -201,33 +212,33 @@ byte progSeq::PCF8574Read() {
   return data;
 }
 
-void progSeq::beepOn(){
+void beepOn(){
   PCF8574Write(0xDF & PCF8574Read());
 }
 
-void progSeq::beepOff(){
+void beepOff(){
   PCF8574Write(0x20 | PCF8574Read());
 }
 
-void progSeq::setColor(int i, uint32_t _color){
-  RGB.setPixelColor(i, 
+void setColor(int i, uint32_t _color){
+  pixels.setPixelColor(i, 
     static_cast<byte>((_color >> 16) & 0xFF),
     static_cast<byte>((_color >> 8) & 0xFF),
     static_cast<byte>((_color >> 0) & 0xFF)
   );
-  RGB.show();
+  pixels.show();
 }
 
-void progSeq::readObstacle(){
+void readObstacle(){
   PCF8574Write(0xC0 | PCF8574Read());   //set Pin High
   obstacle = PCF8574Read() | 0x3F;         //read Pin
 }
 
-bool progSeq::getObstacle(byte sensor){
+bool getObstacle(byte sensor){
   return !(obstacle & sensor); // to be modified
 }
 
-int progSeq::getJoystick(){
+int getJoystick(){
   PCF8574Write(0x1F | PCF8574Read());
   byte value = PCF8574Read() | 0xE0;
   if(value != 0xFF)

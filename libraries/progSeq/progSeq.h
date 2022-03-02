@@ -1,13 +1,15 @@
 #ifndef PROGSEQ_H
 #define PROGSEQ_H
 
-#include <Adafruit_GFX.h>
+#include <Arduino.h>
+
+
+// #include <Adafruit_GFX.h>
 #include <Adafruit_NeoPixel.h>
 #include <Adafruit_SSD1306.h>
 #include <TRSensors.h>
 #include <Wire.h>
 
-#include <Arduino.h>
 
 #define PWMA 6   // Left Motor Speed pin (ENA)
 #define AIN2 A0  // Motor-L forward (IN2).
@@ -17,8 +19,10 @@
 #define BIN2 A3  // Motor-R backward (IN4)
 #define PIN 7
 #define NUM_SENSORS 5
-#define OLED_RESET 9
-#define OLED_SA0 8
+#define SCREEN_WIDTH 128 // OLED display width, in pixels
+#define SCREEN_HEIGHT 32 // OLED display height, in pixels
+#define OLED_RESET     9 // Reset pin # (or -1 if sharing Arduino reset pin)
+#define SCREEN_ADDRESS 0x3C ///< See datasheet for Address; 0x3D for 128x64, 0x3C for 128x32
 #define Addr 0x20
 #define IR 4  // he infrare remote receiver pin
 #define ECHO 2
@@ -56,22 +60,17 @@
 #define beep_on PCF8574Write(0xDF & PCF8574Read())
 #define beep_off PCF8574Write(0x20 | PCF8574Read())
 
-extern Adafruit_SSD1306 display;
-
+// extern Adafruit_SSD1306 display;
 extern Adafruit_NeoPixel RGB;
+extern TRSensors trs;
 
-class progSeq {
- public:
- /**
-  * @brief Construct a robot object
-  * 
-  */
-  progSeq();
+
+
   /**
    * @brief Init the robot
    * 
    */
-  void init();
+  void initRobot();
 
   /**
    * @brief Blocking function that waits for the joystick button to be pressed.
@@ -167,17 +166,11 @@ class progSeq {
    */
   int getJoystick();
 
- private:
-  unsigned int sensorValues[NUM_SENSORS];
-
-  TRSensors trs = TRSensors();
-
-  int obstacle;
+  
 
   void PCF8574Write(byte data);
   byte PCF8574Read();
-};
-
+  
 #endif
 
 
